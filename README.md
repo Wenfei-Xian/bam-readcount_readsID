@@ -1,3 +1,5 @@
+It will output the reads ID in this folk.
+
 bam-readcount
 =============
 
