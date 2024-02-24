@@ -1,4 +1,6 @@
-It will output the reads ID in this folk.
+Modification of this folk.
+1. remove the reads with clippling length
+2. output the reads ID
 
 bam-readcount
 =============
