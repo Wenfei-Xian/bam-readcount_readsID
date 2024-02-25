@@ -22,6 +22,7 @@ BasicStat::BasicStat(bool is_indel)
     , sum_3p_distance(0.0)
     , sum_base_qualities(0)
     , is_indel(is_indel)
+    , readIDs("")
 {
 }
 
@@ -73,6 +74,13 @@ void BasicStat::process_read(bam_pileup1_t const* base) {
     else {
         WARN->warn(ReadWarnings::Zm_TAG_MISSING, bam1_qname(base->b));
     }
+
+    if (!readIDs.empty()) {
+        readIDs += ","; // Add delimiter between IDs
+    }
+    readIDs += bam1_qname(base->b);
+    //readIDs += ":" + std::to_string(clipped_length);
+
 
     //grab the single ended mapping qualities for testing
     if(base->b->core.flag & BAM_FPROPER_PAIR) {
@@ -137,7 +145,8 @@ std::ostream& operator<<(std::ostream& s, const BasicStat& stat) {
             s << 0.0 << ":";
         }
         s << (float) stat.sum_of_clipped_lengths / stat.read_count << ":";
-        s << (float) stat.sum_3p_distance / stat.read_count;
+        s << (float) stat.sum_3p_distance / stat.read_count << ":";
+	s <<  stat.readIDs;
     }
     else {
         s << 0.0 << ":";

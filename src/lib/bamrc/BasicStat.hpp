@@ -25,6 +25,8 @@ class BasicStat {
         mutable std::vector<unsigned int> mapping_qualities;
         mutable std::vector<float> distances_to_3p;
         bool is_indel;
+
+	std::string readIDs; // New string variable
 };
 
 std::ostream& operator<<(std::ostream& s, const BasicStat& stat);
