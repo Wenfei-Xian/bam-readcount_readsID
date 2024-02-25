@@ -146,6 +146,7 @@ num_q2_containing_reads | Number of reads with q2 runs at the 3’ end
 avg_distance_to_q2_start_in_q2_reads | Average distance of position (as fraction of unclipped read length) to the start of the q2 run
 avg_clipped_length | Average clipped read length
 avg_distance_to_effective_3p_end | Average distance to the 3’ prime end of the read (as fraction of unclipped read length)
+list of reads ID | modification in this folk
 
 
 ### Per-library output
